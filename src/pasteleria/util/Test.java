@@ -13,6 +13,7 @@ public class Test {
         PreparedStatement ps = null;
         ResultSet rs;
         String sql = "SELECT * FROM TIPOEMPLEADO";
+        
         try {
         cn = AccesoDB.getConnection();
         ps = cn.prepareStatement(sql);
