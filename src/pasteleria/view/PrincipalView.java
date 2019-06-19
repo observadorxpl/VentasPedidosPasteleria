@@ -300,7 +300,7 @@ public class PrincipalView extends javax.swing.JFrame {
  }//GEN-LAST:event_jMenuItem4ActionPerformed
 
  private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-     //cargarFormInterno(VentasView.class);
+     cargarFormInterno(VentasPresencialView.class);
  }//GEN-LAST:event_jMenuItem9ActionPerformed
 
  private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed

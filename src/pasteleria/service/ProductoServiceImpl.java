@@ -115,5 +115,31 @@ public class ProductoServiceImpl implements ProductoService{
         }
          return pro;
     }
-    
+
+    @Override
+    public Producto findForName(String nombre) throws Exception {
+        pro = null;
+        try {
+            cn = AccesoDB.getConnection();
+             sql = "SELECT ID_PRODUCTO, ID_LINEA, DESCRIPCION, PRECIO_COMPRA,"
+                    + "PRECIO_VENTA, STOCK "
+                    + "FROM PRODUCTO "
+                    + "WHERE DESCRIPCION = ?";
+            ps=cn.prepareStatement(sql);
+            ps.setString(1, nombre);
+            rs=ps.executeQuery();
+            pro=null;
+            if (rs.next()) {                
+                pro=new Producto(rs.getInt(1), rs.getInt(2), rs.getString(3),
+                                 rs.getDouble(4), rs.getDouble(5), rs.getInt(6));
+            }
+            rs.close();
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }finally{
+            cn.close();
+        }
+        return pro;
+    }
 }

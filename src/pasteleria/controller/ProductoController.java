@@ -21,7 +21,10 @@ public class ProductoController {
     public Producto ProductoBuscar(int id) throws Exception {
         return service.findForId(id);
     }
-
+    public Producto ProductoBuscar(String nombre) throws Exception {
+        return service.findForName(nombre);
+    }
+    
     public String ProductoProcesar(Producto pro, int opcion) throws Exception {
         String msg = "";
         switch (opcion) {
