@@ -4,6 +4,9 @@ public class DVentaPresencial {
     private int IdDVentPres;
     private int idVentPres;
     private int IdProducto;
+    //Se agrega solo para mostrar el nombre del producto en VentasPresencial View
+    //No impacta en el modelo de BD
+    private String nombreProducto;
     private double precio;
     private int cantidad;
     private double importe;
@@ -11,7 +14,7 @@ public class DVentaPresencial {
     public DVentaPresencial() {
     }
 
-    public DVentaPresencial(int IdDVentPres, int idVentPres, double precio, int cantidad, double importe) {
+    public DVentaPresencial(int IdDVentPres, int idVentPres, int IdProducto, double precio, int cantidad, double importe) {
         this.IdDVentPres = IdDVentPres;
         this.idVentPres = idVentPres;
         this.IdProducto = IdProducto;
@@ -19,9 +22,15 @@ public class DVentaPresencial {
         this.cantidad = cantidad;
         this.importe = importe;
     }
-
-    public DVentaPresencial(int aInt, int aInt0, int aInt1, double aDouble, int aInt2, double aDouble0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public DVentaPresencial(int IdDVentPres, int idVentPres, int IdProducto, String nombreProducto, double precio, int cantidad, double importe) {
+        this.IdDVentPres = IdDVentPres;
+        this.idVentPres = idVentPres;
+        this.IdProducto = IdProducto;
+        this.nombreProducto = nombreProducto;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.importe = importe;
     }
 
     public int getIdDVentPres() {
@@ -70,6 +79,14 @@ public class DVentaPresencial {
 
     public void setIdProducto(int IdProducto) {
         this.IdProducto = IdProducto;
+    }
+
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
     
 }

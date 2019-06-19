@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pasteleria.controller.ProductoController;
+import pasteleria.model.DVentaPresencial;
 import pasteleria.model.Producto;/*
 import uni.controller.ClienteController;
 import uni.controller.EmpleadoController;
@@ -416,7 +417,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
 
     private void btnagregardetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregardetalleActionPerformed
         try {
-            //agregarDetalle();
+            agregarDetalle();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnagregardetalleActionPerformed
@@ -480,7 +481,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
 //    EmpleadoController oemp = new EmpleadoController();
     ProductoController opro = new ProductoController();
 
-//    List<Detalle> lista = new ArrayList<>();
+    List<DVentaPresencial> lista = new ArrayList<>();
 
     int stk;
 //    Empleado emp = null;
@@ -556,36 +557,36 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
             txtmonto.setText("");
         }
     }
-/*
-    Detalle det = null;
+
+    DVentaPresencial det = null;
 
     private void agregarDetalle() {
-        det = new Detalle();
+        det = new DVentaPresencial();
         //asignar valores al cojeto det
-        det.setIdproducto(txtcodigo.getText());
-        det.setNombre(cboproducto.getSelectedItem().toString().trim());
+        det.setIdProducto(Integer.parseInt(txtcodigo.getText()));
+        det.setNombreProducto(cboproducto.getSelectedItem().toString().trim());
         det.setPrecio(Double.parseDouble(txtprecio.getText()));
         det.setCantidad(Integer.parseInt(txtcantidad.getText()));
-        det.setTotal(Double.parseDouble(txtmonto.getText()));
+        det.setImporte(Double.parseDouble(txtmonto.getText()));
         adicionarDetalle(det);
         listarDetalle(lista);
         TotalVenta();
         NuevoDetalle();
     }
 
-    private void adicionarDetalle(Detalle det) {
+    private void adicionarDetalle(DVentaPresencial det) {
         lista.add(det);
     }
 
-    private void listarDetalle(List<Detalle> lista) {
+    private void listarDetalle(List<DVentaPresencial> lista) {
         DefaultTableModel model = (DefaultTableModel) tbdetalle.getModel();
         model.setRowCount(0);
-        for (Detalle d : lista) {
-            Object[] rowdata = {d.getIdproducto(),
-                d.getNombre(),
+        for (DVentaPresencial d : lista) {
+            Object[] rowdata = {d.getIdProducto(),
+                d.getNombreProducto(),
                 d.getPrecio(),
                 d.getCantidad(),
-                d.getTotal()};
+                d.getImporte()};
             model.addRow(rowdata);
         }
         tbdetalle.setRowSelectionInterval(0, 0);
@@ -596,8 +597,8 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
         double igv = 0;
         double tot = 0;
 
-        for (Detalle d : lista) {
-            subtot += d.getTotal();
+        for (DVentaPresencial d : lista) {
+            subtot += d.getImporte();
         }
         if (cbotipodoc.getSelectedIndex() == 0) {
             igv = subtot * 0.18;
@@ -631,7 +632,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Detalle no tiene item");
         }
     }
-
+/*
     VentaController oVenta = null;
     Venta ve = null;
 
