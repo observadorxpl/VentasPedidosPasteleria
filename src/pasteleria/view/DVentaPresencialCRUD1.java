@@ -28,7 +28,7 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
         lblPrecioVenta = new javax.swing.JLabel();
         lblStock = new javax.swing.JLabel();
         txtIdDVentaPresencial = new javax.swing.JTextField();
-        txtProducto = new javax.swing.JTextField();
+        txtIDProducto = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
         txtCantidad = new javax.swing.JTextField();
         txtImporte = new javax.swing.JTextField();
@@ -42,7 +42,7 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
         btnCerrar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
 
-        setTitle("MANTENIMIENTO DE PRODUCTOS");
+        setTitle("MANTENIMIENTO DE DVNETASPRESENCIAL");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Producto"));
 
@@ -61,9 +61,10 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "CODIGO", "COD. LINEA", "DESCRIPCION", "P. COMPRA", "P. VENTA", "STOCK"
+                "CODIGO", "COD. VEN.PRE", "ID PRODUCTO", "PRECIO", "CANTIDAD", "IMPORTE"
             }
         ));
+        tblProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblProductos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblProductosMouseClicked(evt);
@@ -91,7 +92,7 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
                     .addComponent(txtIdVentaPresencial, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtIDProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtIdDVentaPresencial, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -116,7 +117,7 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDescripcion)
-                    .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIDProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPrecioCompra)
@@ -249,11 +250,11 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblStock;
     private javax.swing.JTable tblProductos;
     private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtIDProducto;
     private javax.swing.JTextField txtIdDVentaPresencial;
     private javax.swing.JTextField txtIdVentaPresencial;
     private javax.swing.JTextField txtImporte;
     private javax.swing.JTextField txtPrecio;
-    private javax.swing.JTextField txtProducto;
     // End of variables declaration//GEN-END:variables
     //crear objeto de la clase ProductoController
     DVentaPresencialController obj = new DVentaPresencialController();
@@ -286,16 +287,16 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
 
     private void consultar() {
         try {
-            dvp = obj.ProductoBuscar(Integer.parseInt(txtIdDVentaPresencial.getText()));
+            dvp = obj.DVentaPresencialBuscar(Integer.parseInt(txtIdDVentaPresencial.getText()));
             if (dvp != null) {
-                txtIdDVentaPresencial.setText(String.valueOf(pro.getIdProducto()));
-                txtIdVentaPresencial.setText(String.valueOf(pro.getIdLinea()));
-                txtProducto.setText(pro.getDescripcion());
-                txtPrecio.setText(String.valueOf(pro.getPrecioCompra()));
-                txtCantidad.setText(String.valueOf(pro.getPrecioCompra()));
-                txtImporte.setText(String.valueOf(pro.getStock()));
+                txtIdDVentaPresencial.setText(String.valueOf(dvp.getIdDVentPres()));
+                txtIdVentaPresencial.setText(String.valueOf(dvp.getIdVentPres()));
+                txtIDProducto.setText(String.valueOf(dvp.getIdProducto()));
+                txtPrecio.setText(String.valueOf(dvp.getPrecio()));
+                txtCantidad.setText(String.valueOf(dvp.getCantidad()));
+                txtImporte.setText(String.valueOf(dvp.getImporte()));
             } else {
-                JOptionPane.showMessageDialog(null, "Producto no existe");
+                JOptionPane.showMessageDialog(null, "Venta no existe");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -303,13 +304,13 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
 
     }
 
-    private Producto leerDatos() {
+    private DVentaPresencial leerDatos() {
         //crear objeto pro
-        pro = new Producto();
+        dvp = new DVentaPresencial();
         //asignar valores al objeto pro
         pro.setIdProducto(Integer.parseInt(txtIdDVentaPresencial.getText()));
         pro.setIdLinea(Integer.parseInt(txtIdVentaPresencial.getText()));
-        pro.setDescripcion(txtProducto.getText());
+        pro.setDescripcion(txtIDProducto.getText());
         pro.setPrecioCompra(Double.parseDouble(txtPrecio.getText()));
         pro.setPrecioVenta(Double.parseDouble(txtCantidad.getText()));
         pro.setStock(Integer.parseInt(txtImporte.getText()));
@@ -323,7 +324,7 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
         if (pro != null) {
             txtIdDVentaPresencial.setText(String.valueOf(pro.getIdProducto()));
             txtIdVentaPresencial.setText(String.valueOf(pro.getIdLinea()));
-            txtProducto.setText(pro.getDescripcion());
+            txtIDProducto.setText(pro.getDescripcion());
             txtPrecio.setText(String.valueOf(pro.getPrecioCompra()));
             txtCantidad.setText(String.valueOf(pro.getPrecioVenta()));
             txtImporte.setText(String.valueOf(pro.getStock()));
