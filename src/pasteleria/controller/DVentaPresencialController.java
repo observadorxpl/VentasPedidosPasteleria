@@ -27,15 +27,15 @@ public class DVentaPresencialController {
         switch (opcion) {
             case Constante.INS:
                 service.create(dvp);
-                msg = "DVentaPresencial registrado con exito";
+                msg = "Detalle de venta registrado con exito";
                 break;
             case Constante.UPD:
                 service.update(dvp);
-                msg = "DVentaPresencial actualizado con exito";
+                msg = "Detalle de venta actualizado con exito";
                 break;
             case Constante.DEL:
                 service.delete(dvp);
-                msg = "DVentaPresencial eliminado con exito";
+                msg = "Detalle de venta eliminado con exito";
                 break;
         }
         return msg;

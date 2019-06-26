@@ -33,7 +33,7 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
         txtCantidad = new javax.swing.JTextField();
         txtImporte = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblProductos = new javax.swing.JTable();
+        tblDVentasPresencial = new javax.swing.JTable();
         txtIdVentaPresencial = new javax.swing.JTextField();
         lblIdLinea = new javax.swing.JLabel();
         btnInsertar = new javax.swing.JButton();
@@ -56,7 +56,7 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
 
         lblStock.setText("Importe");
 
-        tblProductos.setModel(new javax.swing.table.DefaultTableModel(
+        tblDVentasPresencial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -64,13 +64,13 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
                 "CODIGO", "COD. VEN.PRE", "ID PRODUCTO", "PRECIO", "CANTIDAD", "IMPORTE"
             }
         ));
-        tblProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        tblProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblDVentasPresencial.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblDVentasPresencial.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblProductosMouseClicked(evt);
+                tblDVentasPresencialMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblProductos);
+        jScrollPane1.setViewportView(tblDVentasPresencial);
 
         lblIdLinea.setText("ID VentaPresencial");
 
@@ -226,13 +226,13 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
         consultar();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void tblProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductosMouseClicked
+    private void tblDVentasPresencialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDVentasPresencialMouseClicked
         try {
             editar(); 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }       
-    }//GEN-LAST:event_tblProductosMouseClicked
+    }//GEN-LAST:event_tblDVentasPresencialMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
@@ -248,7 +248,7 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblPrecioCompra;
     private javax.swing.JLabel lblPrecioVenta;
     private javax.swing.JLabel lblStock;
-    private javax.swing.JTable tblProductos;
+    private javax.swing.JTable tblDVentasPresencial;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtIDProducto;
     private javax.swing.JTextField txtIdDVentaPresencial;
@@ -263,7 +263,7 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
     private void listarDVentaPresencial() {
         try {
             //variable de tipo tabla
-            DefaultTableModel tabla = (DefaultTableModel) tblProductos.getModel();
+            DefaultTableModel tabla = (DefaultTableModel) tblDVentasPresencial.getModel();
             tabla.setRowCount(0);
             for (DVentaPresencial x : obj.DVentaPresencialListar()) {
                 Object[] fila = { x.getIdDVentPres(), x.getIdVentPres(), x.getIdProducto(), 
@@ -296,7 +296,7 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
                 txtCantidad.setText(String.valueOf(dvp.getCantidad()));
                 txtImporte.setText(String.valueOf(dvp.getImporte()));
             } else {
-                JOptionPane.showMessageDialog(null, "Venta no existe");
+                JOptionPane.showMessageDialog(null, "Detalle de Venta no existe");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -308,28 +308,28 @@ public class DVentaPresencialCRUD1 extends javax.swing.JInternalFrame {
         //crear objeto pro
         dvp = new DVentaPresencial();
         //asignar valores al objeto pro
-        pro.setIdProducto(Integer.parseInt(txtIdDVentaPresencial.getText()));
-        pro.setIdLinea(Integer.parseInt(txtIdVentaPresencial.getText()));
-        pro.setDescripcion(txtIDProducto.getText());
-        pro.setPrecioCompra(Double.parseDouble(txtPrecio.getText()));
-        pro.setPrecioVenta(Double.parseDouble(txtCantidad.getText()));
-        pro.setStock(Integer.parseInt(txtImporte.getText()));
-        return pro;
+        dvp.setIdDVentPres(Integer.parseInt(txtIdDVentaPresencial.getText()));
+        dvp.setIdVentPres(Integer.parseInt(txtIdVentaPresencial.getText()));
+        dvp.setIdProducto(Integer.parseInt(txtIDProducto.getText()));
+        dvp.setPrecio(Double.parseDouble(txtPrecio.getText()));
+        dvp.setCantidad(Integer.parseInt(txtCantidad.getText()));
+        dvp.setImporte(Double.parseDouble(txtImporte.getText()));
+        return dvp;
     }
 
     private void editar() throws Exception {
-        int f = tblProductos.getSelectedRow();
-        Object cod = tblProductos.getValueAt(f, 0);
-        pro = obj.ProductoBuscar((int) cod);
-        if (pro != null) {
-            txtIdDVentaPresencial.setText(String.valueOf(pro.getIdProducto()));
-            txtIdVentaPresencial.setText(String.valueOf(pro.getIdLinea()));
-            txtIDProducto.setText(pro.getDescripcion());
-            txtPrecio.setText(String.valueOf(pro.getPrecioCompra()));
-            txtCantidad.setText(String.valueOf(pro.getPrecioVenta()));
-            txtImporte.setText(String.valueOf(pro.getStock()));
+        int f = tblDVentasPresencial.getSelectedRow();
+        Object cod = tblDVentasPresencial.getValueAt(f, 0);
+        dvp = obj.DVentaPresencialBuscar((int) cod);
+        if (dvp != null) {
+            txtIdDVentaPresencial.setText(String.valueOf(dvp.getIdDVentPres()));
+            txtIdVentaPresencial.setText(String.valueOf(dvp.getIdVentPres()));
+            txtIDProducto.setText(String.valueOf(dvp.getIdProducto()));
+            txtPrecio.setText(String.valueOf(dvp.getPrecio()));
+            txtCantidad.setText(String.valueOf(dvp.getCantidad()));
+            txtImporte.setText(String.valueOf(dvp.getImporte()));
         } else {
-            JOptionPane.showMessageDialog(null, "Producto no existe");
+            JOptionPane.showMessageDialog(null, "Detalle de venta no existe");
         }
     }
 
