@@ -49,6 +49,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem20 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -149,6 +150,14 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uni/imagen/Vista_icons_09.png"))); // NOI18N
         jMenuItem5.setText("Proveedores");
         jMenu1.add(jMenuItem5);
+
+        jMenuItem20.setText("Linea");
+        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem20ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem20);
         jMenu1.add(jSeparator1);
 
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uni/imagen/cancelar.png"))); // NOI18N
@@ -313,7 +322,7 @@ public class PrincipalView extends javax.swing.JFrame {
  }//GEN-LAST:event_jMenuItem9ActionPerformed
 
  private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-     
+     cargarFormInterno(EmpleadoCRUD.class);
  }//GEN-LAST:event_jMenuItem2ActionPerformed
 
  private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
@@ -344,6 +353,10 @@ public class PrincipalView extends javax.swing.JFrame {
     private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem19ActionPerformed
+
+    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+        cargarFormInterno(LineaCRUD.class);
+    }//GEN-LAST:event_jMenuItem20ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -417,6 +430,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem18;
     private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

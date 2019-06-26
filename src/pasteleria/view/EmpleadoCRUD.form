@@ -78,21 +78,19 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblIdProducto" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblDescripcion" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblPrecioCompra" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblApePat" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblPrecioVenta" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblStock" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblIdLinea" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtIdLinea" min="-2" pref="103" max="-2" attributes="0"/>
+                      <Component id="txtIdTipoEmpleado" min="-2" pref="103" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="txtPrecioCompra" min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="txtDescripcion" min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="txtPrecioVenta" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="txtStock" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                          <Component id="txtApePat" min="-2" pref="230" max="-2" attributes="0"/>
+                          <Component id="txtNombre" min="-2" pref="230" max="-2" attributes="0"/>
+                          <Component id="txtApeMat" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="txtIdProducto" min="-2" pref="103" max="-2" attributes="0"/>
+                      <Component id="txtIdEmpleado" min="-2" pref="103" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="554" max="-2" attributes="0"/>
@@ -110,34 +108,29 @@
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblIdProducto" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtIdProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtIdEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtIdLinea" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtIdTipoEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblIdLinea" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblPrecioCompra" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtPrecioCompra" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblApePat" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtApePat" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblPrecioVenta" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtPrecioVenta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtApeMat" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtStock" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblStock" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="58" max="32767" attributes="0"/>
+                  <EmptySpace pref="97" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -150,33 +143,26 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblDescripcion">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Descipci&#xf3;n"/>
+            <Property name="text" type="java.lang.String" value="Nombre"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblPrecioCompra">
+        <Component class="javax.swing.JLabel" name="lblApePat">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Precio Compra"/>
+            <Property name="text" type="java.lang.String" value="Ape. Paterno"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblPrecioVenta">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Precio Venta"/>
+            <Property name="text" type="java.lang.String" value="Ape. Materno"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblStock">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Stock"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="txtIdEmpleado">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtIdProducto">
+        <Component class="javax.swing.JTextField" name="txtNombre">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtDescripcion">
+        <Component class="javax.swing.JTextField" name="txtApePat">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPrecioCompra">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtPrecioVenta">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtStock">
+        <Component class="javax.swing.JTextField" name="txtApeMat">
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
@@ -185,25 +171,19 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="tblProductos">
+            <Component class="javax.swing.JTable" name="tblEmpleados">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="6" rowCount="0">
+                  <Table columnCount="5" rowCount="0">
                     <Column editable="true" title="CODIGO" type="java.lang.Object"/>
-                    <Column editable="true" title="COD. LINEA" type="java.lang.Object"/>
-                    <Column editable="true" title="DESCRIPCION" type="java.lang.Object"/>
-                    <Column editable="true" title="P. COMPRA" type="java.lang.Object"/>
-                    <Column editable="true" title="P. VENTA" type="java.lang.Object"/>
-                    <Column editable="true" title="STOCK" type="java.lang.Object"/>
+                    <Column editable="true" title="COD. TIPO" type="java.lang.Object"/>
+                    <Column editable="true" title="NOMBRE" type="java.lang.Object"/>
+                    <Column editable="true" title="APE. PATERNO" type="java.lang.Object"/>
+                    <Column editable="true" title="APE. MATERNO" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -236,16 +216,16 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblProductosMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblEmpleadosMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="txtIdLinea">
+        <Component class="javax.swing.JTextField" name="txtIdTipoEmpleado">
         </Component>
         <Component class="javax.swing.JLabel" name="lblIdLinea">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ID LINEA"/>
+            <Property name="text" type="java.lang.String" value="ID Tipo"/>
           </Properties>
         </Component>
       </SubComponents>
