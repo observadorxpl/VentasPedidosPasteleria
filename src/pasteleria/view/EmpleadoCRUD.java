@@ -299,8 +299,9 @@ public class EmpleadoCRUD extends javax.swing.JInternalFrame {
         //asignar valores al objeto pro
         oEmpleado.setIdEmpleado(codigo);
         oEmpleado.setIdTipoEmpleado(Integer.parseInt(txtIdTipoEmpleado.getText()));
+        System.out.println(oEmpleado.getIdTipoEmpleado());
         oEmpleado.setNombre(txtNombre.getText());
-        oEmpleado.setApePaterno(txtApeMat.getText());
+        oEmpleado.setApePaterno(txtApePat.getText());
         oEmpleado.setApeMaterno(txtApeMat.getText());
         return oEmpleado;
     }

@@ -74,6 +74,8 @@ public class PrincipalView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISTEMA DE CONTROL EMPRESARIAL");
 
+        desktopPane.setBackground(new java.awt.Color(204, 0, 0));
+
         jToolBar1.setRollover(true);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uni/imagen/blockdevice.png"))); // NOI18N

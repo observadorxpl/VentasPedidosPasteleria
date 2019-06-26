@@ -1,9 +1,13 @@
 package pasteleria.view;
 
+
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pasteleria.controller.ProductoController;
@@ -405,7 +409,11 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void cboproductoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboproductoItemStateChanged
+        try {
             mostrarProducto();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }//GEN-LAST:event_cboproductoItemStateChanged
 
     private void txtcantidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadKeyReleased
@@ -424,7 +432,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
 
     private void btnquitardetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquitardetalleActionPerformed
         try {
-            //quitarDetalle();
+            quitarDetalle();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnquitardetalleActionPerformed
@@ -523,8 +531,8 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
 
     Producto p = null;
 
-    private void mostrarProducto()  {
-        try{
+    private void mostrarProducto() throws Exception  {
+        if(cboproducto.getSelectedIndex() != -1){
         p = new Producto();
         String nom = cboproducto.getSelectedItem().toString().trim();
         p = opro.ProductoBuscar(nom);
@@ -535,10 +543,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
         txtcantidad.setSelectionStart(0);
         txtcantidad.grabFocus();
         calcularMonto();
-        }catch(Exception e){
-            System.out.println(e.getMessage());
         }
-        
     }
 
     private void calcularMonto() {
@@ -593,6 +598,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
     }
 
     private void TotalVenta() {
+        DecimalFormat df = new DecimalFormat("#.000");
         double subtot = 0;
         double igv = 0;
         double tot = 0;
@@ -601,12 +607,13 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
             subtot += d.getImporte();
         }
         if (cbotipodoc.getSelectedIndex() == 0) {
-            igv = subtot * 0.18;
+            System.out.println(subtot);
+            igv = (subtot * 0.18);
+            igv = Math.round(igv * Math.pow(10, 2)) / Math.pow(10, 2);
             tot = subtot + igv;
         } else {
             tot = subtot;
         }
-
         txtsubtotal.setText(subtot + "");
         txtigv.setText(igv + "");
         txttotal.setText(tot + "");

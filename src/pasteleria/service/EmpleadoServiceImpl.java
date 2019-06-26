@@ -21,6 +21,7 @@ public class EmpleadoServiceImpl implements EmpleadoService{
     
     @Override
     public void create(Empleado t) throws Exception {
+        System.out.println(t.toString());
        try {
             cn = AccesoDB.getConnection();
             sql = "INSERT INTO EMPLEADO "
@@ -44,7 +45,7 @@ public class EmpleadoServiceImpl implements EmpleadoService{
     public void update(Empleado t) throws Exception {
         try{
         cn = AccesoDB.getConnection();
-            sql =   "UPDATE PRODUCTO "
+            sql =   "UPDATE EMPLEADO SET "
                     + "ID_TIPOEMPLEADO = ?, NOMBRE = ? ,"
                     + "PATERNO = ?, MATERNO = ? "
                     + "WHERE ID_EMPLEADO = ?";

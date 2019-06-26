@@ -43,7 +43,7 @@ public class LineaServiceImpl implements LineaService{
                     + "WHERE ID_LINEA = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, t.getDescripcion());
-            ps.setInt(1, t.getIdLinea());
+            ps.setInt(2, t.getIdLinea());
             ps.executeUpdate();
        }catch(SQLException e){
             System.out.println(e.getMessage());

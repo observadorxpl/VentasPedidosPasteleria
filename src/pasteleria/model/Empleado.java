@@ -58,5 +58,10 @@ public class Empleado {
     public void setApeMaterno(String apeMaterno) {
         this.apeMaterno = apeMaterno;
     }
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "idEmpleado=" + idEmpleado + ", idTipoEmpleado=" + idTipoEmpleado + ", nombre=" + nombre + ", apePaterno=" + apePaterno + ", apeMaterno=" + apeMaterno + '}';
+    }
     
 }
