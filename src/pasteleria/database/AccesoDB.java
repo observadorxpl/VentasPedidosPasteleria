@@ -12,7 +12,7 @@ public final class AccesoDB {
             // Parámetros de Connexión
             String driver = "oracle.jdbc.OracleDriver";
                 String url = "jdbc:oracle:thin:@132.145.210.11:1521:FSOCIETY";
-            String user = "INTEGRADOR";
+            String user = "INTEGRADOR01";
             String pwd = "123";
             // cargar driver en memoria
             Class.forName(driver).newInstance();
