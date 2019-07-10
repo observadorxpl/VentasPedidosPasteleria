@@ -88,5 +88,12 @@ public class DVentaPresencial {
     public void setNombreProducto(String nombreProducto) {
         this.nombreProducto = nombreProducto;
     }
+
+    @Override
+    public String toString() {
+        return "DVentaPresencial{" + "IdDVentPres=" + IdDVentPres + ", idVentPres=" + idVentPres + ", IdProducto=" + IdProducto + ", nombreProducto=" + nombreProducto + ", precio=" + precio + ", cantidad=" + cantidad + ", importe=" + importe + '}';
+    }
+    
+    
     
 }

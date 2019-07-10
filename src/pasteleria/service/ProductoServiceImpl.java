@@ -22,20 +22,24 @@ public class ProductoServiceImpl implements ProductoService{
     @Override
     public void create(Producto t) throws Exception {
        try {
-            cn = AccesoDB.getConnection();
+           System.out.println("executeUpdate"); 
+           cn = AccesoDB.getConnection();
             sql = "INSERT INTO PRODUCTO "
                     + "(ID_PRODUCTO, ID_LINEA, DESCRIPCION, "
-                    + "PRECIO_COMPRA,PRECIO_VENTA, STOCK) "
-                    + "VALUES (SQ_PRODUCTO.NEXTVAL, ?, ? , ?, ?, ?)";
+                    + "PRECIO_COMPRA,PRECIO_VENTA, STOCK, TIPO_PRODUCTO) "
+                    + "VALUES (SQ_PRODUCTO.NEXTVAL, ?, ? , ?, ?, ?, ?)";
             ps = cn.prepareStatement(sql);
             ps.setInt(1, t.getIdLinea());
             ps.setString(2, t.getDescripcion());
             ps.setDouble(3, t.getPrecioCompra());
             ps.setDouble(4, t.getPrecioVenta());
             ps.setInt(5, t.getStock());
+            ps.setString(6, t.getTipoProducto());
             ps.executeUpdate();
+            
        }catch(SQLException e){
            System.out.println(e.getMessage());
+           System.out.println("sqlException");
        }finally{
            cn.close();
        }

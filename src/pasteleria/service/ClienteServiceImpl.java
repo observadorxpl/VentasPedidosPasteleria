@@ -29,11 +29,10 @@ public class ClienteServiceImpl implements ClienteService{
                     + "RUCDNI,TELEFONO) "
                     + "VALUES (SQ_CLIENTE.NEXTVAL, ?, ? , ?, ?)";
             ps = cn.prepareStatement(sql);
-            ps.setInt(1, t.getIdCliente());
-            ps.setString(2, t.getRazonSocial());
-            ps.setString(3, t.getDireccion());
-            ps.setString(4, t.getRuc_dni());
-            ps.setString(5, t.getTelefono());
+            ps.setString(1, t.getRazonSocial());
+            ps.setString(2, t.getDireccion());
+            ps.setString(3, t.getRuc_dni());
+            ps.setString(4, t.getTelefono());
             ps.executeUpdate();
        }catch(SQLException e){
            System.out.println(e.getMessage());

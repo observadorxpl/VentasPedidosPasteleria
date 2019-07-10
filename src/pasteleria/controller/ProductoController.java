@@ -1,6 +1,7 @@
 package pasteleria.controller;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import pasteleria.model.Producto;
 import pasteleria.service.ProductoService;
 import pasteleria.service.ProductoServiceImpl;
@@ -18,7 +19,7 @@ public class ProductoController {
         return service.readAll();
     }
 
-    public Producto ProductoBuscar(int id) throws Exception {
+    public Producto ProductoBuscarxId(int id) throws Exception {
         return service.findForId(id);
     }
     public Producto ProductoBuscar(String nombre) throws Exception {

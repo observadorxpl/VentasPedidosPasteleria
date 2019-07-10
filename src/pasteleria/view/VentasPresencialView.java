@@ -1,6 +1,5 @@
 package pasteleria.view;
 
-
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,7 +9,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import pasteleria.controller.ClienteController;
 import pasteleria.controller.ProductoController;
+import pasteleria.model.Cliente;
 import pasteleria.model.DVentaPresencial;
 import pasteleria.model.Producto;/*
 import uni.controller.ClienteController;
@@ -23,7 +24,7 @@ import uni.entity.Empleado;
 
 import uni.entity.Venta;
 import uni.util.Session;
-*/
+ */
 public class VentasPresencialView extends javax.swing.JInternalFrame {
 
     public VentasPresencialView() {
@@ -420,6 +421,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
         try {
             calcularMonto();
         } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_txtcantidadKeyReleased
 
@@ -427,6 +429,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
         try {
             agregarDetalle();
         } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnagregardetalleActionPerformed
 
@@ -434,6 +437,8 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
         try {
             quitarDetalle();
         } catch (Exception e) {
+            TotalVenta();
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_btnquitardetalleActionPerformed
 
@@ -485,8 +490,8 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     //instanciar objetos
-//    ClienteController ocli = new ClienteController();
-//    EmpleadoController oemp = new EmpleadoController();
+    ClienteController ocli = new ClienteController();
+//  EmpleadoController oemp = new EmpleadoController();
     ProductoController opro = new ProductoController();
 
     List<DVentaPresencial> lista = new ArrayList<>();
@@ -496,14 +501,15 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
 
     private void cargaListas() throws Exception {
         //llenar combo de cliente
+        cboproducto.removeAllItems();
         cbocliente.removeAllItems();
-//        for (Cliente c : ocli.ClienteListar()) {
-  //          cbocliente.addItem(c);
-//        }
+        for (Cliente c : ocli.ClienteListar()) {
+            cbocliente.addItem(c);
+        }
         //llenar combo de producto
         cboproducto.removeAllItems();
         for (Producto p : opro.ProductoListar()) {
-            cboproducto.addItem(p.getDescripcion());
+            cboproducto.addItem(p);
         }
         //nombre de empleado
 //  emp = (Empleado) Session.get("usuario");
@@ -516,50 +522,70 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
     }
 
     private void nuevaVenta() {
+        txtcantidad.setSelectionStart(0);
+        txtcantidad.grabFocus();
         Date hoy = new Date();
         SimpleDateFormat mascara = new SimpleDateFormat("dd/MM/yyyy");
         lblfecha.setText(mascara.format(hoy));
         txtsubtotal.setText("");
         txtigv.setText("");
         txttotal.setText("");
-  //      lista.clear();
+        //      lista.clear();
         DefaultTableModel model = (DefaultTableModel) tbdetalle.getModel();
         model.setRowCount(0);
         txtnro.setText("");
         cbocliente.setSelectedIndex(-1);
+        //cboproducto.setSelectedIndex(-1);
     }
 
     Producto p = null;
 
-    private void mostrarProducto() throws Exception  {
-        if(cboproducto.getSelectedIndex() != -1){
-        p = new Producto();
-        String nom = cboproducto.getSelectedItem().toString().trim();
-        p = opro.ProductoBuscar(nom);
-        stk = p.getStock();
-        txtcodigo.setText(String.valueOf(p.getIdProducto()));
-        txtprecio.setText(String.valueOf(p.getPrecioVenta()));
-        txtcantidad.setText("1");
-        txtcantidad.setSelectionStart(0);
-        txtcantidad.grabFocus();
-        calcularMonto();
+    private void mostrarProducto() throws Exception {
+        if (cboproducto.getSelectedIndex() != -1) {
+            p = (Producto) cboproducto.getSelectedItem();
+            //p = opro.ProductoBuscarxId(p.getIdProducto());
+            //String nom = cboproducto.getSelectedItem().toString().trim();
+            //p = opro.ProductoBuscarxId(nom);
+            stk = p.getStock();
+            txtcodigo.setText(String.valueOf(p.getIdProducto()));
+            txtprecio.setText(String.valueOf(p.getPrecioVenta()));
+            txtcantidad.setText("1");
+            txtcantidad.setSelectionStart(0);
+            txtcantidad.grabFocus();
+            calcularMonto();
         }
     }
 
     private void calcularMonto() {
         if (!"".equals(txtcantidad.getText())) {
-            int cant = Integer.parseInt(txtcantidad.getText());
-            if (cant < stk) {
-                double pre = Double.parseDouble(txtprecio.getText());
-                double monto = pre * cant;
-                txtmonto.setText(monto + "");
-            } else {
-                JOptionPane.showMessageDialog(this, "Solo quedan:" + stk + " unidades en stock");
-                txtcantidad.setSelectionStart(0);
-                txtcantidad.grabFocus();
-            }
+            if (Integer.parseInt(txtcantidad.getText().trim()) > 0) {
+                int cant = Integer.parseInt(txtcantidad.getText());
+                System.out.println(cant);
+                //if(cant < 1){cant = 1;}
+                if (cant < stk) {
+                    double pre = Double.parseDouble(txtprecio.getText());
+                    double monto = pre * cant;
+                    txtmonto.setText(monto + "");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Solo quedan:" + stk + " unidades en stock");
+                    txtcantidad.setText(stk - 1 + "");
+                    calcularMonto();
+                    txtcantidad.setSelectionStart(0);
+                    txtcantidad.grabFocus();
+                }
+            }else{
+                txtcantidad.setText("1");
+            JOptionPane.showMessageDialog(null, "Ingrese una cantidad valida");
+            txtcantidad.setSelectionStart(0);
+            txtcantidad.grabFocus();
+            calcularMonto();}
         } else {
-            txtmonto.setText("");
+            System.out.println("lg");
+            txtcantidad.setText("1");
+            JOptionPane.showMessageDialog(null, "Ingrese una cantidad valida");
+            txtcantidad.setSelectionStart(0);
+            txtcantidad.grabFocus();
+            
         }
     }
 
@@ -573,6 +599,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
         det.setPrecio(Double.parseDouble(txtprecio.getText()));
         det.setCantidad(Integer.parseInt(txtcantidad.getText()));
         det.setImporte(Double.parseDouble(txtmonto.getText()));
+        System.out.println("log");
         adicionarDetalle(det);
         listarDetalle(lista);
         TotalVenta();
@@ -580,7 +607,20 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
     }
 
     private void adicionarDetalle(DVentaPresencial det) {
-        lista.add(det);
+        boolean val = false;
+        for (DVentaPresencial d : lista) {
+            if (det.getIdProducto() == d.getIdProducto()) {
+                d.setCantidad(d.getCantidad() + det.getCantidad());
+                d.setImporte(d.getPrecio() * d.getCantidad());
+                System.out.println("true");
+                val = true;
+            }
+        }
+        if (val == false) {
+            lista.add(det);
+            System.out.println(lista.toString());
+        }
+
     }
 
     private void listarDetalle(List<DVentaPresencial> lista) {
@@ -639,7 +679,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Detalle no tiene item");
         }
     }
-/*
+    /*
     VentaController oVenta = null;
     Venta ve = null;
 
@@ -666,7 +706,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }
-*/
+     */
 //    private void imprimir() {
 //        Connection cn;
 //        try {

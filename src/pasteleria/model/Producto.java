@@ -6,6 +6,7 @@ public class Producto {
     private double precioCompra;
     private double precioVenta;
     private int stock;
+    private String tipoProducto;
 
     public Producto() {
     }
@@ -67,9 +68,19 @@ public class Producto {
         this.stock = stock;
     }
 
+    public String getTipoProducto() {
+        return tipoProducto;
+    }
+
+    public void setTipoProducto(String tipoProducto) {
+        this.tipoProducto = tipoProducto;
+    }
+
     @Override
     public String toString() {
-        return "Producto{" + "idProducto=" + idProducto + ", idLinea=" + idLinea + ", descripcion=" + descripcion + ", precioCompra=" + precioCompra + ", precioVenta=" + precioVenta + ", stock=" + stock + '}';
+        return this.descripcion;
     }
+ 
+
     
 }

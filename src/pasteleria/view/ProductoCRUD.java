@@ -36,6 +36,8 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
         tblProductos = new javax.swing.JTable();
         txtIdLinea = new javax.swing.JTextField();
         lblIdLinea = new javax.swing.JLabel();
+        lblTipoProducto = new javax.swing.JLabel();
+        cbo_tipoproducto = new javax.swing.JComboBox<>();
         btnInsertar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -61,7 +63,7 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "CODIGO", "COD. LINEA", "DESCRIPCION", "P. COMPRA", "P. VENTA", "STOCK"
+                "CODIGO", "LINEA", "DESCRIPCION", "P. COMPRA", "P. VENTA", "STOCK"
             }
         ));
         tblProductos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -70,8 +72,17 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(tblProductos);
+        if (tblProductos.getColumnModel().getColumnCount() > 0) {
+            tblProductos.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tblProductos.getColumnModel().getColumn(1).setPreferredWidth(5);
+            tblProductos.getColumnModel().getColumn(3).setPreferredWidth(20);
+            tblProductos.getColumnModel().getColumn(4).setPreferredWidth(20);
+            tblProductos.getColumnModel().getColumn(5).setPreferredWidth(20);
+        }
 
         lblIdLinea.setText("ID LINEA");
+
+        lblTipoProducto.setText("Tipo Producto");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,16 +96,17 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
                     .addComponent(lblPrecioCompra)
                     .addComponent(lblPrecioVenta)
                     .addComponent(lblStock)
-                    .addComponent(lblIdLinea))
+                    .addComponent(lblIdLinea)
+                    .addComponent(lblTipoProducto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtIdLinea, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtPrecioCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtPrecioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrecioCompra, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(txtPrecioVenta, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(txtStock, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbo_tipoproducto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
@@ -129,7 +141,11 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblStock))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTipoProducto)
+                    .addComponent(cbo_tipoproducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         btnInsertar.setText("Insertar");
@@ -202,8 +218,6 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jPanel1.getAccessibleContext().setAccessibleName("Datos Producto");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -241,6 +255,7 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
+    private javax.swing.JComboBox<String> cbo_tipoproducto;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDescripcion;
@@ -249,6 +264,7 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblPrecioCompra;
     private javax.swing.JLabel lblPrecioVenta;
     private javax.swing.JLabel lblStock;
+    private javax.swing.JLabel lblTipoProducto;
     private javax.swing.JTable tblProductos;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtIdLinea;
@@ -262,6 +278,10 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
     Producto pro;
 
     private void listarProductos() {
+        cbo_tipoproducto.removeAll();
+        cbo_tipoproducto.addItem("::Seleccione::");
+        cbo_tipoproducto.addItem("Presencial");
+        cbo_tipoproducto.addItem("Delivery");
         try {
             //variable de tipo tabla
             DefaultTableModel tabla = (DefaultTableModel) tblProductos.getModel();
@@ -278,9 +298,15 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
     private void procesar(int op) {
         pro = leerDatos();
         try {
-            String msg = obj.ProductoProcesar(pro, op);
-            JOptionPane.showMessageDialog(null, msg);
-            listarProductos();
+            if(pro != null){
+                String msg = obj.ProductoProcesar(pro, op);
+                JOptionPane.showMessageDialog(null, msg);
+                limpiarInputs();
+                listarProductos();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Seleccione un tipo de producto");
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -288,7 +314,7 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
 
     private void consultar() {
         try {
-            pro = obj.ProductoBuscar(Integer.parseInt(txtIdProducto.getText()));
+            pro = obj.ProductoBuscarxId(Integer.parseInt(txtIdProducto.getText()));
             if (pro != null) {
                 txtIdProducto.setText(String.valueOf(pro.getIdProducto()));
                 txtIdLinea.setText(String.valueOf(pro.getIdLinea()));
@@ -316,13 +342,21 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
         pro.setPrecioCompra(Double.parseDouble(txtPrecioCompra.getText()));
         pro.setPrecioVenta(Double.parseDouble(txtPrecioVenta.getText()));
         pro.setStock(Integer.parseInt(txtStock.getText()));
+        if(cbo_tipoproducto.getSelectedItem().toString().equals("Presencial")){
+        pro.setTipoProducto("P");
+        }else if(cbo_tipoproducto.getSelectedItem().toString().equals("Delivery")) {
+            pro.setTipoProducto("D");
+        }
+        else{
+            return pro = null;
+        }
         return pro;
     }
 
     private void editar() throws Exception {
         int f = tblProductos.getSelectedRow();
         Object cod = tblProductos.getValueAt(f, 0);
-        pro = obj.ProductoBuscar((int) cod);
+        pro = obj.ProductoBuscarxId((int) cod);
         if (pro != null) {
             txtIdProducto.setText(String.valueOf(pro.getIdProducto()));
             txtIdLinea.setText(String.valueOf(pro.getIdLinea()));
@@ -333,6 +367,15 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Producto no existe");
         }
+    }
+    private void limpiarInputs(){
+        txtIdProducto.setText("");
+        txtIdLinea.setText("");
+        txtDescripcion.setText("");
+        txtPrecioCompra.setText("");
+        txtPrecioVenta.setText("");
+        txtStock.setText("");
+        cbo_tipoproducto.setSelectedIndex(0);
     }
 
 }

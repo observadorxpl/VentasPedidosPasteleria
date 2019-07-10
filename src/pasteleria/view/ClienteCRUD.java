@@ -65,6 +65,11 @@ public class ClienteCRUD extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(tblClientes);
+        if (tblClientes.getColumnModel().getColumnCount() > 0) {
+            tblClientes.getColumnModel().getColumn(0).setPreferredWidth(5);
+            tblClientes.getColumnModel().getColumn(3).setPreferredWidth(10);
+            tblClientes.getColumnModel().getColumn(4).setPreferredWidth(10);
+        }
 
         lblIdLinea.setText("Razón social");
 
@@ -120,8 +125,6 @@ public class ClienteCRUD extends javax.swing.JInternalFrame {
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
-
-        lblIdLinea.getAccessibleContext().setAccessibleName("Razón social");
 
         btnInsertar.setText("Insertar");
         btnInsertar.addActionListener(new java.awt.event.ActionListener() {
