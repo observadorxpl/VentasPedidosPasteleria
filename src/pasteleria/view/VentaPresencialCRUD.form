@@ -22,11 +22,14 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jPanel1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Component id="btnInsertar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnActualizar" min="-2" max="-2" attributes="0"/>
@@ -36,9 +39,9 @@
                       <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnCerrar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -46,8 +49,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnInsertar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -77,38 +80,62 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblDescripcion" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblPrecioCompra" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblPrecioVenta" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblStock" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblIdLinea" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtIdVentaPresencial" min="-2" pref="103" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="txtEmpleado" min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="txtIDCliente" min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="txtFecha" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
-                          <Component id="txtMontoT" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblDescripcion" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblPrecioCompra" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblPrecioVenta" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblStock" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblIdLinea" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="33" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtIdVentaPresencial" min="-2" pref="103" max="-2" attributes="0"/>
+                                      <Component id="txtTipoVenta" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="txtEmpleado" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Component id="txtIDCliente" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Component id="txtFechaEmision" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
+                                      <Component id="txtFechaEntrega" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtMontoT" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jScrollPane1" min="-2" pref="613" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblPrecioVenta1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDescripcion1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="554" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblDescripcion1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTipoVenta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtIdVentaPresencial" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblIdLinea" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -126,15 +153,21 @@
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblPrecioVenta" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtFecha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFechaEmision" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtMontoT" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPrecioVenta1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFechaEntrega" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="62" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtMontoT" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
+              <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -151,7 +184,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblPrecioVenta">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Fecha"/>
+            <Property name="text" type="java.lang.String" value="Fecha Emisi&#xf3;n"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblStock">
@@ -163,7 +196,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtEmpleado">
         </Component>
-        <Component class="javax.swing.JTextField" name="txtFecha">
+        <Component class="javax.swing.JTextField" name="txtFechaEmision">
         </Component>
         <Component class="javax.swing.JTextField" name="txtMontoT">
         </Component>
@@ -177,16 +210,28 @@
             <Component class="javax.swing.JTable" name="tblVentasPresencial">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="0">
+                  <Table columnCount="7" rowCount="0">
+                    <Column editable="true" title="TIPO" type="java.lang.Object"/>
                     <Column editable="true" title="CODIGO" type="java.lang.Object"/>
                     <Column editable="true" title="ID CLIENTE" type="java.lang.Object"/>
                     <Column editable="true" title="ID EMPLEADO" type="java.lang.Object"/>
-                    <Column editable="true" title="FECHA" type="java.lang.Object"/>
+                    <Column editable="true" title="FECHA EMISI&#xd3;N" type="java.lang.Object"/>
+                    <Column editable="true" title="FECHA ENTREGA" type="java.lang.Object"/>
                     <Column editable="true" title="MONTO TOTAL" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -233,6 +278,20 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="ID VentaPresencial"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblPrecioVenta1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fecha Entrega"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtFechaEntrega">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblDescripcion1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tipo de Venta"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtTipoVenta">
         </Component>
       </SubComponents>
     </Container>

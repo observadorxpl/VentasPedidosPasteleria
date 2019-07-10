@@ -28,12 +28,16 @@ public class VentaPresencialCRUD extends javax.swing.JInternalFrame {
         lblStock = new javax.swing.JLabel();
         txtIDCliente = new javax.swing.JTextField();
         txtEmpleado = new javax.swing.JTextField();
-        txtFecha = new javax.swing.JTextField();
+        txtFechaEmision = new javax.swing.JTextField();
         txtMontoT = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblVentasPresencial = new javax.swing.JTable();
         txtIdVentaPresencial = new javax.swing.JTextField();
         lblIdLinea = new javax.swing.JLabel();
+        lblPrecioVenta1 = new javax.swing.JLabel();
+        txtFechaEntrega = new javax.swing.JTextField();
+        lblDescripcion1 = new javax.swing.JLabel();
+        txtTipoVenta = new javax.swing.JTextField();
         btnInsertar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -48,7 +52,7 @@ public class VentaPresencialCRUD extends javax.swing.JInternalFrame {
 
         lblPrecioCompra.setText("ID Empleado");
 
-        lblPrecioVenta.setText("Fecha");
+        lblPrecioVenta.setText("Fecha Emisión");
 
         lblStock.setText("Monto Total");
 
@@ -57,7 +61,7 @@ public class VentaPresencialCRUD extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "CODIGO", "ID CLIENTE", "ID EMPLEADO", "FECHA", "MONTO TOTAL"
+                "TIPO", "CODIGO", "ID CLIENTE", "ID EMPLEADO", "FECHA EMISIÓN", "FECHA ENTREGA", "MONTO TOTAL"
             }
         ));
         tblVentasPresencial.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -70,37 +74,57 @@ public class VentaPresencialCRUD extends javax.swing.JInternalFrame {
 
         lblIdLinea.setText("ID VentaPresencial");
 
+        lblPrecioVenta1.setText("Fecha Entrega");
+
+        lblDescripcion1.setText("Tipo de Venta");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDescripcion)
-                    .addComponent(lblPrecioCompra)
-                    .addComponent(lblPrecioVenta)
-                    .addComponent(lblStock)
-                    .addComponent(lblIdLinea))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtIdVentaPresencial, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtMontoT, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDescripcion)
+                            .addComponent(lblPrecioCompra)
+                            .addComponent(lblPrecioVenta)
+                            .addComponent(lblStock)
+                            .addComponent(lblIdLinea, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtIdVentaPresencial, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTipoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(99, 99, 99))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtIDCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFechaEmision, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtFechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtMontoT, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPrecioVenta1)
+                            .addComponent(lblDescripcion1))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 50, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDescripcion1)
+                    .addComponent(txtTipoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdVentaPresencial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIdLinea))
@@ -115,12 +139,17 @@ public class VentaPresencialCRUD extends javax.swing.JInternalFrame {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPrecioVenta)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
+                    .addComponent(txtFechaEmision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMontoT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblStock))
-                .addContainerGap(62, Short.MAX_VALUE))
+                    .addComponent(lblPrecioVenta1)
+                    .addComponent(txtFechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblStock)
+                    .addComponent(txtMontoT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         btnInsertar.setText("Insertar");
@@ -165,7 +194,9 @@ public class VentaPresencialCRUD extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnInsertar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -175,15 +206,15 @@ public class VentaPresencialCRUD extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCerrar)))
-                .addContainerGap())
+                        .addComponent(btnCerrar)
+                        .addGap(101, 101, 101))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertar)
                     .addComponent(btnActualizar)
@@ -235,16 +266,20 @@ public class VentaPresencialCRUD extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblDescripcion1;
     private javax.swing.JLabel lblIdLinea;
     private javax.swing.JLabel lblPrecioCompra;
     private javax.swing.JLabel lblPrecioVenta;
+    private javax.swing.JLabel lblPrecioVenta1;
     private javax.swing.JLabel lblStock;
     private javax.swing.JTable tblVentasPresencial;
     private javax.swing.JTextField txtEmpleado;
-    private javax.swing.JTextField txtFecha;
+    private javax.swing.JTextField txtFechaEmision;
+    private javax.swing.JTextField txtFechaEntrega;
     private javax.swing.JTextField txtIDCliente;
     private javax.swing.JTextField txtIdVentaPresencial;
     private javax.swing.JTextField txtMontoT;
+    private javax.swing.JTextField txtTipoVenta;
     // End of variables declaration//GEN-END:variables
     //crear objeto de la clase ProductoController
     VentaPresencialController obj = new VentaPresencialController();
@@ -282,7 +317,7 @@ public class VentaPresencialCRUD extends javax.swing.JInternalFrame {
                 txtIdVentaPresencial.setText(String.valueOf(vp.getIdVentaPresencial()));
                 txtIDCliente.setText(String.valueOf(vp.getIdCliente()));
                 txtEmpleado.setText(String.valueOf(vp.getIdEmpleado()));
-                txtFecha.setText(String.valueOf(vp.getFecha()));
+                txtFechaEmision.setText(String.valueOf(vp.getFecha()));
                 txtMontoT.setText(String.valueOf(vp.getMontoT()));
             } else {
                 JOptionPane.showMessageDialog(null, "Detalle de Venta no existe");
@@ -313,7 +348,7 @@ public class VentaPresencialCRUD extends javax.swing.JInternalFrame {
             txtIdVentaPresencial.setText(String.valueOf(vp.getIdVentaPresencial()));
             txtIDCliente.setText(String.valueOf(vp.getIdCliente()));
             txtEmpleado.setText(String.valueOf(vp.getIdEmpleado()));
-            txtFecha.setText(String.valueOf(vp.getFecha()));
+            txtFechaEmision.setText(String.valueOf(vp.getFecha()));
             txtMontoT.setText(String.valueOf(vp.getMontoT()));
         } else {
             JOptionPane.showMessageDialog(null, "Venta no existe");
