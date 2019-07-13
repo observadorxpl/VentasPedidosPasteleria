@@ -28,7 +28,7 @@ public class VentaServiceImpl implements VentaService{
             ps.setInt(2, t.getIdCliente());
             ps.setInt(3, t.getIdEmpleado());
             ps.setDouble(4, t.getMontT());
-            ps.setDouble(5, t.getTipoV());
+            ps.setString(5, t.getTipoV());
             ps.executeUpdate();
        }catch(SQLException e){
            System.out.println(e.getMessage());
@@ -50,7 +50,7 @@ public class VentaServiceImpl implements VentaService{
             ps.setInt(2, t.getIdCliente());
             ps.setInt(3, t.getIdEmpleado());
             ps.setDouble(4, t.getMontT());
-            ps.setDouble(5, t.getTipoV());
+            ps.setString(5, t.getTipoV());
             ps.executeUpdate();
        }catch(SQLException e){
             System.out.println(e.getMessage());
@@ -75,7 +75,7 @@ public class VentaServiceImpl implements VentaService{
             rs = ps.executeQuery();
             while(rs.next()){
                 va = new Venta(rs.getInt(1), rs.getInt(2), rs.getInt(3),
-                        rs.getDate(4), rs.getDate(5), rs.getDouble(6),rs.get(7));
+                        rs.getDate(4), rs.getDate(5), rs.getDouble(6),rs.getString(7));
                 lista.add(va);
             }
         } catch (SQLException e) {
@@ -100,7 +100,7 @@ public class VentaServiceImpl implements VentaService{
             rs = ps.executeQuery();
             if(rs.next()){
                 va = new Venta(rs.getInt(1), rs.getInt(2), rs.getInt(3),
-                        rs.getDate(4), rs.getDate(5), rs.getDouble(6),rs.get(7));
+                        rs.getDate(4), rs.getDate(5), rs.getDouble(6),rs.getString(7));
             }
         } catch (SQLException e) {
              System.out.println(e.getMessage());

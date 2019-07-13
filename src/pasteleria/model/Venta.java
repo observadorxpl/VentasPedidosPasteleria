@@ -10,12 +10,12 @@ public class Venta {
     private Date FechProd;
     private Date FechEntr;
     private double MontT;
-    private char tipoV;
+    private String tipoV;
 
     public Venta() {
     }
 
-    public Venta(int IdVenta, int IdCliente, int IdEmpleado, Date FechProd, Date FechEntr, double MontT, char tipoV) {
+    public Venta(int IdVenta, int IdCliente, int IdEmpleado, Date FechProd, Date FechEntr, double MontT, String tipoV) {
         this.IdVenta = IdVenta;
         this.IdCliente = IdCliente;
         this.IdEmpleado = IdEmpleado;
@@ -73,11 +73,11 @@ public class Venta {
         this.MontT = MontT;
     }
 
-    public char getTipoV() {
+    public String getTipoV() {
         return tipoV;
     }
 
-    public void setTipoV(char tipoV) {
+    public void setTipoV(String tipoV) {
         this.tipoV = tipoV;
     }
     
