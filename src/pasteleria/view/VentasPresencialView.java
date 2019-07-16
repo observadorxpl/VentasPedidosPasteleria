@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pasteleria.controller.ClienteController;
 import pasteleria.controller.ProductoController;
+import pasteleria.controller.VentaController;
 import pasteleria.model.Cliente;
 import pasteleria.model.DVentaPresencial;
 import pasteleria.model.Producto;/*
@@ -25,6 +26,7 @@ import uni.entity.Empleado;
 import uni.entity.Venta;
 import uni.util.Session;
  */
+import pasteleria.model.Venta;
 public class VentasPresencialView extends javax.swing.JInternalFrame {
 
     public VentasPresencialView() {
@@ -444,7 +446,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
 
     private void btnregistraventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistraventaActionPerformed
         try {
-            //grabarVenta();
+            grabarVenta();
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnregistraventaActionPerformed
@@ -679,7 +681,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Detalle no tiene item");
         }
     }
-    /*
+    
     VentaController oVenta = null;
     Venta ve = null;
 
@@ -689,16 +691,16 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
             oVenta = new VentaController();
             ve = new Venta();
             //asignar valores al objeto ve
-            ve.setIdcliente(ocli.CodigodeCliente(cbocliente.getSelectedItem().toString().trim()));
-            ve.setIdempleado("E0001");
-            ve.setTipodoc(cbotipodoc.getSelectedItem().toString());
-            ve.setNrodoc(txtnrodoc.getText());
-            ve.setTotal(Double.parseDouble(txttotal.getText()));
-            ve.setDetalle(lista);
+            ve.setIdCliente(ocli.ClienteBuscar(cbocliente.getSelectedItem().toString().trim()).getIdCliente());
+            ve.setIdEmpleado(1);
+            ve.setTipoV(cbotipodoc.getSelectedItem().toString());
+            //ve.setNrodoc(txtnrodoc.getText());
+            ve.setMontT(Double.parseDouble(txttotal.getText()));
+            ve.setDetalleVenta(lista);
             //graba venta
-            oVenta.grabarVenta(ve);
-            int idfact = ve.getIdventa();
-            txtnro.setText("000" + idfact + "");
+            oVenta.VentaPresencialProcesar(ve, 1);
+            int idfact = ve.getIdVenta();
+            txtnro.setText("000" + String.valueOf(idfact) + "");
             JOptionPane.showMessageDialog(this, "Venta registrada con exito \n Gracias por su compra");
 //   imprimir();
             nuevaVenta();
@@ -706,7 +708,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }
-     */
+     
 //    private void imprimir() {
 //        Connection cn;
 //        try {

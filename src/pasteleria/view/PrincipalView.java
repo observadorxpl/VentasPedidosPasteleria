@@ -50,6 +50,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem20 = new javax.swing.JMenuItem();
+        jMenuItem22 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem21 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -166,6 +167,14 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem20);
+
+        jMenuItem22.setText("Listado de Ventas");
+        jMenuItem22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem22ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem22);
         jMenu1.add(jSeparator1);
 
         jMenuItem21.setText("Tipo Empleado");
@@ -382,6 +391,10 @@ public class PrincipalView extends javax.swing.JFrame {
         cargarFormInterno(ClienteCRUD.class);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem22ActionPerformed
+        cargarFormInterno(VentaPresencialCRUD.class);
+    }//GEN-LAST:event_jMenuItem22ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -456,6 +469,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem21;
+    private javax.swing.JMenuItem jMenuItem22;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

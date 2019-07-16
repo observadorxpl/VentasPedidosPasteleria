@@ -22,13 +22,13 @@ public class VentaServiceImpl implements VentaService{
             sql = "INSERT INTO VENTA "
                     + "(ID_VENTA, ID_CLIENTE, ID_EMPLEADO, "
                     + "FECHA_PRODUCIDO,FECHA_ENTREGA,MONTOTOTAL,TIPO_VENTA) "
-                    + "VALUES (SQ_PRODUCTO.NEXTVAL, ?, ? , ?, ?, ?, ?, ?)";
+                    + "VALUES (SQ_VENTA.NEXTVAL, ?, ? , SYSTIMESTAMP, SYSTIMESTAMP, ?, ?)";
             ps = cn.prepareStatement(sql);
-            ps.setInt(1, t.getIdVenta());
-            ps.setInt(2, t.getIdCliente());
-            ps.setInt(3, t.getIdEmpleado());
-            ps.setDouble(4, t.getMontT());
-            ps.setString(5, t.getTipoV());
+            //ps.setInt(1, t.getIdVenta());
+            ps.setInt(1, t.getIdCliente());
+            ps.setInt(2, t.getIdEmpleado());
+            ps.setDouble(3, t.getMontT());
+            ps.setString(4, t.getTipoV());
             ps.executeUpdate();
        }catch(SQLException e){
            System.out.println(e.getMessage());
