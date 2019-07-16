@@ -6,19 +6,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import pasteleria.database.AccesoDB;
+import pasteleria.model.DetalleVenta;
 import pasteleria.model.Venta;
 public class VentaServiceImpl implements VentaService{
     Connection cn;
-    PreparedStatement ps;
-    ResultSet rs;
+    PreparedStatement ps, ps2;
+    ResultSet rs, rs2 ;
     Venta va;
     String sql;
     public VentaServiceImpl() {
     }
     @Override
     public void create(Venta t) throws Exception {
+        System.out.println("-----venta------");
+        System.out.println(t.toString());
         try {
             cn = AccesoDB.getConnection();
+            cn.setAutoCommit(false);
             sql = "INSERT INTO VENTA "
                     + "(ID_VENTA, ID_CLIENTE, ID_EMPLEADO, "
                     + "FECHA_PRODUCIDO,FECHA_ENTREGA,MONTOTOTAL,TIPO_VENTA) "
@@ -30,8 +34,25 @@ public class VentaServiceImpl implements VentaService{
             ps.setDouble(3, t.getMontT());
             ps.setString(4, t.getTipoV());
             ps.executeUpdate();
+            
+            sql = "INSERT INTO DETALLE_VENTA"
+                    + "(ID_DETALLEVENTA, ID_VENTA, "
+                    + "ID_PRODUCTO, PRECIO, CANTIDAD,IMPORTE) "
+                    + "VALUES (SQ_DETALLE_VENTA.NEXTVAL, SQ_VENTA.CURRVAL , "
+                    + "? , ?, ?, ?)";
+            ps2 = cn.prepareStatement(sql);
+            
+            for (DetalleVenta d : t.getDetallesVenta()) {
+                ps2.setInt(1, d.getIdProducto());
+                ps2.setDouble(2, d.getPrecio());
+                ps2.setInt(3, d.getCantidad());
+                ps2.setDouble(4, d.getImporte());
+                ps2.executeUpdate();
+            }
+            cn.commit();
        }catch(SQLException e){
            System.out.println(e.getMessage());
+           cn.rollback();
        }finally{
            cn.close();
        }

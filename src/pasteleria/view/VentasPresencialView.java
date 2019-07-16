@@ -14,6 +14,7 @@ import pasteleria.controller.ProductoController;
 import pasteleria.controller.VentaController;
 import pasteleria.model.Cliente;
 import pasteleria.model.DVentaPresencial;
+import pasteleria.model.DetalleVenta;
 import pasteleria.model.Producto;/*
 import uni.controller.ClienteController;
 import uni.controller.EmpleadoController;
@@ -506,7 +507,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
 //  EmpleadoController oemp = new EmpleadoController();
     ProductoController opro = new ProductoController();
 
-    List<DVentaPresencial> lista = new ArrayList<>();
+    List<DetalleVenta> lista = new ArrayList<>();
 
     int stk;
 //    Empleado emp = null;
@@ -601,10 +602,10 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
         }
     }
 
-    DVentaPresencial det = null;
+    DetalleVenta det = null;
 
     private void agregarDetalle() {
-        det = new DVentaPresencial();
+        det = new DetalleVenta();
         //asignar valores al cojeto det
         det.setIdProducto(Integer.parseInt(txtcodigo.getText()));
         det.setNombreProducto(cboproducto.getSelectedItem().toString().trim());
@@ -618,9 +619,9 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
         NuevoDetalle();
     }
 
-    private void adicionarDetalle(DVentaPresencial det) {
+    private void adicionarDetalle(DetalleVenta det) {
         boolean val = false;
-        for (DVentaPresencial d : lista) {
+        for (DetalleVenta d : lista) {
             if (det.getIdProducto() == d.getIdProducto()) {
                 d.setCantidad(d.getCantidad() + det.getCantidad());
                 d.setImporte(d.getPrecio() * d.getCantidad());
@@ -635,10 +636,10 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
 
     }
 
-    private void listarDetalle(List<DVentaPresencial> lista) {
+    private void listarDetalle(List<DetalleVenta> lista) {
         DefaultTableModel model = (DefaultTableModel) tbdetalle.getModel();
         model.setRowCount(0);
-        for (DVentaPresencial d : lista) {
+        for (DetalleVenta d : lista) {
             Object[] rowdata = {d.getIdProducto(),
                 d.getNombreProducto(),
                 d.getPrecio(),
@@ -655,7 +656,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
         double igv = 0;
         double tot = 0;
 
-        for (DVentaPresencial d : lista) {
+        for (DetalleVenta d : lista) {
             subtot += d.getImporte();
         }
         if (cbotipodoc.getSelectedIndex() == 0) {
@@ -707,7 +708,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
             //ve.setNrodoc(txtnrodoc.getText());
             ve.setTipoV("P");
             ve.setMontT(Double.parseDouble(txttotal.getText()));
-            ve.setDetalleVenta(lista);
+            ve.setDetallesVenta(lista);
             //graba venta
             oVenta.VentaPresencialProcesar(ve, 1);
             int idfact = ve.getIdVenta();

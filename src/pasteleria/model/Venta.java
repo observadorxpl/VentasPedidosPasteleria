@@ -13,9 +13,20 @@ public class Venta {
     private Date FechEntr;
     private double MontT;
     private String tipoV;
-    private List<DVentaPresencial> DetalleVenta;// = new ArrayList<>();  
+    private List<DetalleVenta> detallesVenta;// = new ArrayList<>();  
     
     public Venta() {
+    }
+
+    public Venta(int IdVenta, int IdCliente, int IdEmpleado, Date FechProd, Date FechEntr, double MontT, String tipoV, List<DetalleVenta> detallesVenta) {
+        this.IdVenta = IdVenta;
+        this.IdCliente = IdCliente;
+        this.IdEmpleado = IdEmpleado;
+        this.FechProd = FechProd;
+        this.FechEntr = FechEntr;
+        this.MontT = MontT;
+        this.tipoV = tipoV;
+        this.detallesVenta = detallesVenta;
     }
 
     public Venta(int IdVenta, int IdCliente, int IdEmpleado, Date FechProd, Date FechEntr, double MontT, String tipoV) {
@@ -27,6 +38,8 @@ public class Venta {
         this.MontT = MontT;
         this.tipoV = tipoV;
     }
+
+    
 
     public int getIdVenta() {
         return IdVenta;
@@ -83,11 +96,23 @@ public class Venta {
     public void setTipoV(String tipoV) {
         this.tipoV = tipoV;
     }
+
+    public List<DetalleVenta> getDetallesVenta() {
+        return detallesVenta;
+    }
+
+    public void setDetallesVenta(List<DetalleVenta> detallesVenta) {
+        this.detallesVenta = detallesVenta;
+    }
+
+    @Override
+    public String toString() {
+        return "Venta{" + "IdVenta=" + IdVenta + ", IdCliente=" + IdCliente + ", IdEmpleado=" + IdEmpleado + ", FechProd=" + FechProd + ", FechEntr=" + FechEntr + ", MontT=" + MontT + ", tipoV=" + tipoV + ", detallesVenta=" + detallesVenta + '}';
+    }
+
+  
     
-    public List<DVentaPresencial> getDetalleVenta() {
-        return DetalleVenta;
-    }
-    public void setDetalleVenta(List<DVentaPresencial> DetalleVenta) {
-        this.DetalleVenta = DetalleVenta;
-    }
+    
+    
+    
 }
