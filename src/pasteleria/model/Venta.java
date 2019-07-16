@@ -1,6 +1,8 @@
 package pasteleria.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 public class Venta {
@@ -11,7 +13,8 @@ public class Venta {
     private Date FechEntr;
     private double MontT;
     private String tipoV;
-
+    private List<DVentaPresencial> DetalleVenta;// = new ArrayList<>();  
+    
     public Venta() {
     }
 
@@ -81,4 +84,10 @@ public class Venta {
         this.tipoV = tipoV;
     }
     
+    public List<DVentaPresencial> getDetalleVenta() {
+        return DetalleVenta;
+    }
+    public void setDetalleVenta(List<DVentaPresencial> DetalleVenta) {
+        this.DetalleVenta = DetalleVenta;
+    }
 }
