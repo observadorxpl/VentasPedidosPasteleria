@@ -327,6 +327,11 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
         });
 
         btnimprimir.setText("Imprimir");
+        btnimprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnimprimirActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Cerrar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -450,6 +455,11 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnregistraventaActionPerformed
+
+    private void btnimprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnimprimirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnimprimirActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnagregardetalle;
     private javax.swing.JButton btnimprimir;
@@ -693,8 +703,9 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
             //asignar valores al objeto ve
             ve.setIdCliente(ocli.ClienteBuscar(cbocliente.getSelectedItem().toString().trim()).getIdCliente());
             ve.setIdEmpleado(1);
-            ve.setTipoV(cbotipodoc.getSelectedItem().toString());
+            //ve.setTipoV(cbotipodoc.getSelectedItem().toString());
             //ve.setNrodoc(txtnrodoc.getText());
+            ve.setTipoV("P");
             ve.setMontT(Double.parseDouble(txttotal.getText()));
             ve.setDetalleVenta(lista);
             //graba venta
