@@ -320,12 +320,17 @@ public class PrincipalView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
  private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+
      try {
          InformeView app = new InformeView("src/pasteleria/reporte/ventas-fecha.jasper");
-         app.setBounds(0, 0, desktopPane.getWidth(), desktopPane.getHeight());
+         Dimension jInternalFrameSize = app.getSize();
+         Dimension desktopSize = desktopPane.getSize();
+         app.setBounds(0, 0, (desktopPane.getWidth()/2), desktopPane.getHeight());
          app.setVisible(true);
          desktopPane.add(app);
          app.setSelected(true);
+         app.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                        (desktopSize.height - jInternalFrameSize.height) / 2);
      } catch (Exception ex) {
          // Logger.getLogger(reporteView.class.getName()).log(Level.SEVERE, null, ex);
      }

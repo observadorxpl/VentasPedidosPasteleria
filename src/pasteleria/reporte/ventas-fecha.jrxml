@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="700" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b8790c5-0826-4376-896d-922319f76e84">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="7"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT TO_CHAR(FECHA_PRODUCIDO, 'DD/MM/YYYY') "FECHA", 
 CASE  TIPO_VENTA 
@@ -24,11 +24,11 @@ GROUP BY TO_CHAR(FECHA_PRODUCIDO, 'DD/MM/YYYY'), TIPO_VENTA]]>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="151" y="18" width="256" height="48" forecolor="#CC0000" uuid="2f79d2cd-b6b7-4010-bcfc-33e4c23336c3"/>
+				<reportElement x="46" y="15" width="461" height="48" forecolor="#CC0000" uuid="2f79d2cd-b6b7-4010-bcfc-33e4c23336c3"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Century Gothic" size="30" isBold="true"/>
 				</textElement>
-				<text><![CDATA[REPORTE VENTAS]]></text>
+				<text><![CDATA[REPORTE DE VENTAS]]></text>
 			</staticText>
 		</band>
 	</title>
@@ -36,13 +36,13 @@ GROUP BY TO_CHAR(FECHA_PRODUCIDO, 'DD/MM/YYYY'), TIPO_VENTA]]>
 		<band height="35" splitType="Stretch">
 			<staticText>
 				<reportElement x="372" y="15" width="135" height="20" uuid="9a39817a-ed4a-4a3b-a7a5-5df8ab228b5c"/>
-				<textElement>
+				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[AGRUPADO POR FECHA]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="46" y="15" width="100" height="20" uuid="3d269994-6520-48c3-9f4a-ac58576c16cf"/>
+				<reportElement x="24" y="15" width="100" height="20" uuid="3d269994-6520-48c3-9f4a-ac58576c16cf"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
@@ -54,18 +54,22 @@ GROUP BY TO_CHAR(FECHA_PRODUCIDO, 'DD/MM/YYYY'), TIPO_VENTA]]>
 		<band height="27" splitType="Stretch">
 			<staticText>
 				<reportElement x="46" y="2" width="100" height="20" uuid="6a1544cb-9bcf-4e15-8192-1886cd024a0f"/>
+				<textElement textAlignment="Center"/>
 				<text><![CDATA[FECHA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="165" y="2" width="100" height="20" uuid="4597e4f5-31e2-4f5d-b304-30e45c1976ea"/>
+				<textElement textAlignment="Center"/>
 				<text><![CDATA[TIPO]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="286" y="2" width="100" height="20" uuid="f10634ca-e1e7-435f-9ca9-e975bb4abc85"/>
+				<textElement textAlignment="Center"/>
 				<text><![CDATA[MONTO TOTAL]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="407" y="2" width="100" height="20" uuid="f6339e54-f6b4-452e-afdc-1d5d5d98eea6"/>
+				<textElement textAlignment="Center"/>
 				<text><![CDATA[CANTIDAD]]></text>
 			</staticText>
 			<line>
@@ -77,22 +81,26 @@ GROUP BY TO_CHAR(FECHA_PRODUCIDO, 'DD/MM/YYYY'), TIPO_VENTA]]>
 		<band height="24" splitType="Stretch">
 			<textField>
 				<reportElement x="46" y="2" width="100" height="20" uuid="c2bbb996-37ae-45cd-b8f8-c11e5e0bbf5f"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="165" y="2" width="100" height="20" uuid="cc8559a0-68e5-4fa8-a76d-5dd56b37f376"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{TIPO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="286" y="2" width="100" height="20" uuid="26294515-d251-4045-8e6f-f5226d9d00b2"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{MONTO TOTAL}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="433" y="2" width="100" height="20" uuid="ee1284da-b493-4da0-9de2-7c5383da81e1"/>
+				<reportElement x="407" y="2" width="100" height="20" uuid="ee1284da-b493-4da0-9de2-7c5383da81e1"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="24" y="22" width="483" height="1" forecolor="#000000" uuid="797680be-bd97-446a-b9b0-2653c753cd1d"/>
+				<reportElement x="24" y="22" width="483" height="1" forecolor="#CCCCCC" uuid="797680be-bd97-446a-b9b0-2653c753cd1d"/>
 			</line>
 		</band>
 	</detail>
