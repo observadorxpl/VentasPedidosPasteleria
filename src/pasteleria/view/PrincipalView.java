@@ -268,7 +268,7 @@ public class PrincipalView extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem14);
 
-        jMenuItem15.setText("Lista de Clientes");
+        jMenuItem15.setText("Lista de Ventas por fecha");
         jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem15ActionPerformed(evt);
@@ -320,7 +320,15 @@ public class PrincipalView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
  private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-     // TODO add your handling code here:
+     try {
+         InformeView app = new InformeView("src/pasteleria/reporte/ventas-fecha.jasper");
+         app.setBounds(0, 0, desktopPane.getWidth(), desktopPane.getHeight());
+         app.setVisible(true);
+         desktopPane.add(app);
+         app.setSelected(true);
+     } catch (Exception ex) {
+         // Logger.getLogger(reporteView.class.getName()).log(Level.SEVERE, null, ex);
+     }
  }//GEN-LAST:event_jMenuItem15ActionPerformed
 
  private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
@@ -351,15 +359,15 @@ public class PrincipalView extends javax.swing.JFrame {
  }//GEN-LAST:event_jMenuItem2ActionPerformed
 
  private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-  try {
-   InformeView app = new InformeView("src/pasteleria/reporte/producto-listado-presencial.jasper");
-   app.setBounds(0, 0, desktopPane.getWidth(), desktopPane.getHeight());
-   app.setVisible(true);
-   desktopPane.add(app);
-   app.setSelected(true);
-  } catch (Exception ex) {
-   // Logger.getLogger(reporteView.class.getName()).log(Level.SEVERE, null, ex);
-  }
+     try {
+         InformeView app = new InformeView("src/pasteleria/reporte/producto-listado-presencial.jasper");
+         app.setBounds(0, 0, desktopPane.getWidth(), desktopPane.getHeight());
+         app.setVisible(true);
+         desktopPane.add(app);
+         app.setSelected(true);
+     } catch (Exception ex) {
+         // Logger.getLogger(reporteView.class.getName()).log(Level.SEVERE, null, ex);
+     }
  }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -508,9 +516,9 @@ public class PrincipalView extends javax.swing.JFrame {
                 view = (JInternalFrame) Class.forName(aClass.getName()).newInstance();
                 desktopPane.add(view);
                 view.setVisible(true);
-                 jInternalFrameSize= view.getSize();
-                         view.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
-                        (desktopSize.height- jInternalFrameSize.height)/2);
+                jInternalFrameSize = view.getSize();
+                view.setLocation((desktopSize.width - jInternalFrameSize.width) / 2,
+                        (desktopSize.height - jInternalFrameSize.height) / 2);
             }
             // Activar formulario
             view.setSelected(true);
