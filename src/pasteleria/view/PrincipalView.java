@@ -260,7 +260,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenu4.setText("Reportes");
 
-        jMenuItem14.setText("Lista de precios");
+        jMenuItem14.setText("Lista de Productos Presencial");
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem14ActionPerformed(evt);
@@ -351,15 +351,15 @@ public class PrincipalView extends javax.swing.JFrame {
  }//GEN-LAST:event_jMenuItem2ActionPerformed
 
  private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-  /*try {
-   InformeView app = new InformeView("src/uni/reportes/lulistaprecios.jasper");
+  try {
+   InformeView app = new InformeView("src/pasteleria/reporte/producto-listado-presencial.jasper");
    app.setBounds(0, 0, desktopPane.getWidth(), desktopPane.getHeight());
    app.setVisible(true);
    desktopPane.add(app);
    app.setSelected(true);
   } catch (Exception ex) {
    // Logger.getLogger(reporteView.class.getName()).log(Level.SEVERE, null, ex);
-  }*/
+  }
  }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed

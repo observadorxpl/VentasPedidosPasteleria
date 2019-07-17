@@ -28,6 +28,7 @@ import uni.entity.Venta;
 import uni.util.Session;
  */
 import pasteleria.model.Venta;
+
 public class VentasPresencialView extends javax.swing.JInternalFrame {
 
     public VentasPresencialView() {
@@ -543,7 +544,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
         txtsubtotal.setText("");
         txtigv.setText("");
         txttotal.setText("");
-        //      lista.clear();
+        lista.clear();
         DefaultTableModel model = (DefaultTableModel) tbdetalle.getModel();
         model.setRowCount(0);
         txtnro.setText("");
@@ -586,19 +587,20 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
                     txtcantidad.setSelectionStart(0);
                     txtcantidad.grabFocus();
                 }
-            }else{
+            } else {
                 txtcantidad.setText("1");
-            JOptionPane.showMessageDialog(null, "Ingrese una cantidad valida");
-            txtcantidad.setSelectionStart(0);
-            txtcantidad.grabFocus();
-            calcularMonto();}
+                JOptionPane.showMessageDialog(null, "Ingrese una cantidad valida");
+                txtcantidad.setSelectionStart(0);
+                txtcantidad.grabFocus();
+                calcularMonto();
+            }
         } else {
             System.out.println("lg");
             txtcantidad.setText("1");
             JOptionPane.showMessageDialog(null, "Ingrese una cantidad valida");
             txtcantidad.setSelectionStart(0);
             txtcantidad.grabFocus();
-            
+
         }
     }
 
@@ -692,7 +694,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Detalle no tiene item");
         }
     }
-    
+
     VentaController oVenta = null;
     Venta ve = null;
 
@@ -720,7 +722,7 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }
-     
+
 //    private void imprimir() {
 //        Connection cn;
 //        try {
