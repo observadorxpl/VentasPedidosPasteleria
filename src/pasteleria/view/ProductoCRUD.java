@@ -278,7 +278,7 @@ public class ProductoCRUD extends javax.swing.JInternalFrame {
     Producto pro;
 
     private void listarProductos() {
-        cbo_tipoproducto.removeAll();
+        cbo_tipoproducto.removeAllItems();
         cbo_tipoproducto.addItem("::Seleccione::");
         cbo_tipoproducto.addItem("Presencial");
         cbo_tipoproducto.addItem("Delivery");
