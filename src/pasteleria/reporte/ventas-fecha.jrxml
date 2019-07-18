@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="700" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b8790c5-0826-4376-896d-922319f76e84">
-	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="7"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT TO_CHAR(FECHA_PRODUCIDO, 'DD/MM/YYYY') "FECHA", 
 CASE  TIPO_VENTA 
@@ -53,23 +53,31 @@ GROUP BY TO_CHAR(FECHA_PRODUCIDO, 'DD/MM/YYYY'), TIPO_VENTA]]>
 	<columnHeader>
 		<band height="27" splitType="Stretch">
 			<staticText>
-				<reportElement x="46" y="2" width="100" height="20" uuid="6a1544cb-9bcf-4e15-8192-1886cd024a0f"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="46" y="2" width="100" height="20" forecolor="#666666" uuid="6a1544cb-9bcf-4e15-8192-1886cd024a0f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[FECHA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="165" y="2" width="100" height="20" uuid="4597e4f5-31e2-4f5d-b304-30e45c1976ea"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="165" y="2" width="100" height="20" forecolor="#666666" uuid="4597e4f5-31e2-4f5d-b304-30e45c1976ea"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[TIPO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="286" y="2" width="100" height="20" uuid="f10634ca-e1e7-435f-9ca9-e975bb4abc85"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="286" y="2" width="100" height="20" forecolor="#666666" uuid="f10634ca-e1e7-435f-9ca9-e975bb4abc85"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[MONTO TOTAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="407" y="2" width="100" height="20" uuid="f6339e54-f6b4-452e-afdc-1d5d5d98eea6"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="407" y="2" width="100" height="20" forecolor="#666666" uuid="f6339e54-f6b4-452e-afdc-1d5d5d98eea6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[CANTIDAD]]></text>
 			</staticText>
 			<line>
@@ -81,22 +89,30 @@ GROUP BY TO_CHAR(FECHA_PRODUCIDO, 'DD/MM/YYYY'), TIPO_VENTA]]>
 		<band height="24" splitType="Stretch">
 			<textField>
 				<reportElement x="46" y="2" width="100" height="20" uuid="c2bbb996-37ae-45cd-b8f8-c11e5e0bbf5f"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="165" y="2" width="100" height="20" uuid="cc8559a0-68e5-4fa8-a76d-5dd56b37f376"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{TIPO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="286" y="2" width="100" height="20" uuid="26294515-d251-4045-8e6f-f5226d9d00b2"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{MONTO TOTAL}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="407" y="2" width="100" height="20" uuid="ee1284da-b493-4da0-9de2-7c5383da81e1"/>
-				<textElement textAlignment="Center"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
 			</textField>
 			<line>
