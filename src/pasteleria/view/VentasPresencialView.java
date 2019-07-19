@@ -1,5 +1,6 @@
 package pasteleria.view;
 
+import java.awt.Dimension;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -459,7 +460,9 @@ public class VentasPresencialView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnregistraventaActionPerformed
 
     private void btnimprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnimprimirActionPerformed
-        // TODO add your handling code here:
+        PrincipalView principalView = new PrincipalView();
+        System.out.println("mostrar");
+        principalView.mostrarBoleta();
     }//GEN-LAST:event_btnimprimirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
